@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ANITA AstroInformatics 2017</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="assets/css/prism.css" />
+        
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>ANITA AstroInformatics 2017</h1>
+						<p>Software tools you'll need for this course</p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								
+								<h2>ADACS-Training Docker Image</h2>
+								<p>The container is based on <code>Ubuntu 16.04</code>. It contains the following software modules:</p>
+                                        <ul>
+                                        <li>MySQL Server + Employees Sample Database <a href="https://github.com/datacharmer/test_db" target="_blank">
+                                        <i class="fa fa-download" aria-hidden="true"></i></a></li>
+                                        <li>git</li>
+                                        <li>OpenMPI</li>
+                                        <li>Anaconda2 (4.2.0)</li>
+                                        <li>Emacs</li>                                        
+                                        </ul>
+								<p><code>Docker</code> is a virtualization mechanism to package your application into a standardised unit. 
+                                To install <code>Docker</code> on your machine follow these 
+                                <a href="https://docs.docker.com/engine/installation/" target="_blank">instructions</a>.  
+                                More details about <code>Docker</code> can be found on 
+                                <a href="https://docs.docker.com/engine/getstarted/" target="_blank">"Get started with Docker"</a> </p> 
+                                <p>
+                                To start an ADACS-Training container, start <code>Docker</code> terminal (if you are not using Linux) and write the following command:           
+                                <pre><code class="language-css">docker run -p 3306:3306 -p 8888:8888 -it caseresearch/adacs-training</code></pre>
+                                </p>
+                                <p>
+                                This will download all the necessary software and start a new <code>Docker</code> 
+                                for you. To install <code>Anaconda</code> and the sample databases, please run the following command:
+                                <pre><code class="language-css">/docker_init/init.sh</code></pre>
+                                
+                                After this step, you have a fully functional <code>Docker</code> container with ports <b>3306</b> 
+                                ( for <code>MySQL</code>) and port <b>8888</b> ( for <code>ipython</code>) exposed to your machine. 
+                                </p>
+                                <!-- Other Tools -->
+								<h2>Other Tools Required</h2>
+								<p>Within the workshop, you will need to have the following tools in addition to the <code>Docker</code> container. 
+                                <ul>
+                                <li> MySQL WorkBench <a href="https://dev.mysql.com/downloads/workbench/" target="_blank"> 
+                                <i class="fa fa-download" aria-hidden="true"></i></a> </li>
+                                </ul>
+                                </p>
+                                
+                                <!-- Other Options -->
+								<h2>If you don't want to use Docker</h2>
+								<p>If you decided not to use <code>Docker</code>, you should install the following software modules on your local machine. 
+                                <ul>
+                                <li>git</li>
+                                <li>MySQL Server <a href="https://dev.mysql.com/doc/refman/5.7/en/installing.html" target="_blank">
+                                <i class="fa fa-download" aria-hidden="true"></i></a></li>
+                                <li> MySQL WorkBench <a href="https://dev.mysql.com/downloads/workbench/" target="_blank"> 
+                                <i class="fa fa-download" aria-hidden="true"></i></a> </li>
+                                <li>Python 2.7 or <a href="https://www.continuum.io/downloads" target="_blank">Anaconda</a> (Python 2.7)</li>
+                                <li>OpenMPI and <a href="http://pythonhosted.org/mpi4py/" target="_blank">MPI for Python</a>
+                                <pre><code class="language-css">conda install --yes anaconda mpi4py</code></pre>
+                                </li>
+                                
+                                
+                                <li>MySQL Sample Database 
+                                <pre><code class="language-css">
+git clone https://github.com/datacharmer/test_db.git .
+mysql < employees.sql
+                                </code></pre>
+                                </li>
+                                </ul>
+                                </p>
+                                
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+						
+						<p class="copyright">&copy; Astronomy Data and Compute Services. Design: <a href="https://html5up.net">HTML5 UP</a>.<br/>
+                        built by <a href="https://twitter.com/Amr_H_Hassan">@Amr_H_Hassan</a> for <a href="https://www.adacs.org.au">ADACS</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+        	<script src="assets/js/prism.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
