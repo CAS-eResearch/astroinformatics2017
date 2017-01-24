@@ -49,13 +49,13 @@
                                 More details about <code>Docker</code> can be found on 
                                 <a href="https://docs.docker.com/engine/getstarted/" target="_blank">"Get started with Docker"</a> </p> 
                                 <p>
-                                To start an ADACS-Training container, start <code>Docker</code> terminal (if you are not using Linux) and write the following command:           
+                                To start an ADACS-Training container, write the following command in a terminal (if you are not using Linux, 
+                                you will need to start a <code>Docker</code> terminal) :           
                                 <pre><code class="language-css">docker run -p 3306:3306 -p 8888:8888 -it caseresearch/adacs-training</code></pre>
                                 </p>
                                 <p>
                                 This will download all the necessary software and start a new <code>Docker</code> 
-                                for you. To install <code>Anaconda</code> and the sample databases, please run the following command:
-                                <pre><code class="language-css">/docker_init/init.sh</code></pre>
+                                for you. 
                                 
                                 After this step, you have a fully functional <code>Docker</code> container with ports <b>3306</b> 
                                 ( for <code>MySQL</code>) and port <b>8888</b> ( for <code>ipython</code>) exposed to your machine. 
@@ -87,8 +87,7 @@
                                 <li>MySQL Sample Database 
                                 <pre><code class="language-css">
 git clone https://github.com/datacharmer/test_db.git .
-mysql < employees.sql
-                                </code></pre>
+mysql < employees.sql</code></pre>
                                 </li>
                                 </ul>
                                 </p>
