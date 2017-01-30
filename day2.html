@@ -31,10 +31,9 @@
 					<nav id="nav">
 						<ul>
 							<li><a href="index.html" class="active">Home</a></li>
-							<li><a href="index.html#first">Day 1</a></li>
-							<li><a href="index.html#second">Day 2</a></li>
-							<li><a href="index.html#third">Day 3</a></li>
-                            <li><a href="index.html#helpdesk">HPC/Data Support</a></li>
+							<li><a href="#python-vis">Data Visualization</a></li>
+							<li><a href="#sql">Introduction to SQL</a></li>
+							<li><a href="#git">Source Control</a></li>                            
 						</u>
 					</nav>
 
@@ -55,9 +54,124 @@
                         <header class="major">
                         <h2>Introduction to SQL</h2>
                         </header>
-                       
-                         <p></p>
+                       	<h3><b>Data Definition Language</b></h3>
+                        <p>
+                        <pre><code class="language-sql">
+CREATE DATABASE Examples;
+CREATE TABLE Students(
+ ID INTEGER,
+ FirstName VARCHAR(50),
+ LastName VARCHAR(50),
+ PRIMARY KEY (ID)
+);
+CREATE TABLE Classes(
+ ID INTEGER,
+ AcademicYear INTEGER,
+ Class VARCHAR(2),
+ PRIMARY KEY (ID, AcademicYear)
+);
+
+ALTER TABLE Students
+ADD COLUMN  DOB DATE NOT NULL;
+                        </code></pre>
+                        </p>
+                        <h3><b>Data Manipulation Language</b></h3> 
+						<p>
+                        <pre><code class="language-sql">
+INSERT INTO Students 
+(`ID`,`FirstName`,`LastName`,`DOB`)
+VALUES 
+(1001,'John','Smith','1/1/2000');
+
+INSERT INTO Students 
+(`ID`,`FirstName`,`LastName`)
+VALUES 
+(1001,'John','Smith’);
+
+UPDATE Students
+SET
+`FirstName` = ‘Caroline’,
+`LastName` = ‘Herschel’,
+`DOB` = ‘2/2/2000’
+WHERE `ID` = 1002;
+
+DELET FROM Students
+WHERE `ID` = 1003;
                         
+                        </code></pre>
+                        </p>
+                        <h3><b>Database Query using SELECT</b></h3> 
+						<p>
+                        <pre><code class="language-sql">
+SELECT `emp_no`,`birth_date`,`first_name`,`last_name`,`gender`,`hire_date` FROM `employees`;
+SELECT * FROM employees.employees;
+SELECT * FROM employees.employees where gender='F';
+SELECT * FROM employees.employees where gender='F' and hire_date<'1988-1-1';
+SELECT * FROM employees.employees where gender='F' and First_Name='Gao';
+SELECT * FROM employees.employees where gender='F' and First_Name like 'G%';
+SELECT * FROM employees.employees where gender='F' and First_Name like '%G%';
+SELECT * FROM employees.employees where birth_date>='1963-1-1' and birth_date<'1964-1-1';
+SELECT * FROM employees.employees where birth_date>='1963-1-1' and birth_date<'1964-1-1' 
+order by birth_date;
+
+SELECT * FROM employees inner join dept_emp on employees.emp_no=dept_emp.emp_no;
+SELECT * FROM employees inner join dept_emp on employees.emp_no=dept_emp.emp_no 
+Order by employees.emp_no;
+
+SELECT * FROM employees inner join dept_emp on employees.emp_no=dept_emp.emp_no 
+where dept_emp.dept_no='d008'
+Order by employees.emp_no;
+
+
+SELECT * FROM employees inner join dept_emp on employees.emp_no=dept_emp.emp_no 
+where dept_emp.dept_no='d008' and employees.gender='M'
+Order by employees.emp_no;
+
+SELECT employees.emp_no,employees.birth_date,employees.first_name,
+employees.last_name,employees.gender,employees.hire_date,dept_emp.dept_no,
+dept_emp.from_date,dept_emp.to_date,departments.dept_name 
+FROM employees inner join dept_emp on employees.emp_no=dept_emp.emp_no 
+inner join departments on  dept_emp.dept_no=departments.dept_no 
+where dept_emp.dept_no='d008'
+Order by employees.emp_no;
+                        </code></pre>
+                        </p>
+                        <h3><b>Aggregate Functions</b></h3> 
+						<p>
+                        <pre><code class="language-sql">
+SELECT count(*) FROM employees ; 
+
+SELECT min(birth_date) , max(birth_date) FROM employees ;
+
+SELECT min(birth_date) , max(birth_date) FROM employees where gender='F' ;
+
+SELECT count(*) FROM employees where gender='F' ;
+
+select sum(salaries.salary) 
+from employees inner join salaries on employees.emp_no=salaries.emp_no 
+where employees.emp_no='10001';
+
+select avg(salaries.salary) 
+from employees inner join salaries on employees.emp_no=salaries.emp_no 
+where employees.emp_no='10001';
+
+
+SELECT departments.dept_name, count(*) 
+FROM employees inner join dept_emp on employees.emp_no=dept_emp.emp_no 
+inner join departments on  dept_emp.dept_no=departments.dept_no 
+group by departments.dept_name;
+
+
+select employees.emp_no,employees.first_name,employees.last_name, avg(salaries.salary)
+ from employees inner join salaries on employees.emp_no=salaries.emp_no
+group by employees.emp_no,employees.first_name,employees.last_name
+
+select employees.emp_no,employees.first_name,employees.last_name, avg(salaries.salary)
+ from employees inner join salaries on employees.emp_no=salaries.emp_no
+group by employees.emp_no,employees.first_name,employees.last_name
+having avg(salaries.salary)>50000
+                        </code></pre>
+                        </p>
                         </section>
                         
                         <section id="hpc" class="main">
