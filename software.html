@@ -27,13 +27,30 @@
 						<p>Software tools you'll need for this course</p>
 					</header>
 
+				 <!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html" class="active">Home</a></li>
+							<li><a href="index.html#first">Day 1 - Python</a></li>
+							<li><a href="index.html#second">Day 2 - Managing Data</a></li>
+							<li><a href="index.html#third">Day 3 - Cloud Computing and Visualization</a></li>
+						</u>
+					</nav>
+                    
 				<!-- Main -->
 					<div id="main">
 
+						<section id="aws" class="main">
+                        <header class="major">
+                        <h2>Using Amazon Webservices</h2>
+                        Details Comming Soon
+                        </header>
+                        </section>
 						<!-- Content -->
-							<section id="content" class="main">
-								
+							<section id="docker" class="main">
+								<header class="major">
 								<h2>ADACS-Training Docker Image</h2>
+                                </header>
 								<p>The container is based on <code>Ubuntu 16.04</code>. It contains the following software modules:</p>
                                         <ul>
                                         <li>MySQL Server + Employees Sample Database <a href="https://github.com/datacharmer/test_db" target="_blank">
@@ -49,8 +66,7 @@
                                 More details about <code>Docker</code> can be found on 
                                 <a href="https://docs.docker.com/engine/getstarted/" target="_blank">"Get started with Docker"</a> </p> 
                                 <p>
-                                To start an ADACS-Training container, write the following command in a terminal (if you are not using Linux, 
-                                you will need to start a <code>Docker</code> terminal) :           
+                                To start an ADACS-Training container, write the following command in your terminal :           
                                 <pre><code class="language-css">docker run -p 3306:3306 -p 8888:8888 -it caseresearch/adacs-training</code></pre>
                                 </p>
                                 <p>
@@ -68,9 +84,11 @@
                                 <i class="fa fa-download" aria-hidden="true"></i></a> </li>
                                 </ul>
                                 </p>
-                                
-                                <!-- Other Options -->
-								<h2>If you don't want to use Docker</h2>
+                                </section>
+                                <section id="nodocker" class="main">
+                                <header class="major">
+								<h2>If you prefer to use your PC/laptop with no virtualization</h2>
+                                </header>
 								<p>If you decided not to use <code>Docker</code>, you should install the following software modules on your local machine. 
                                 <ul>
                                 <li>git</li>
